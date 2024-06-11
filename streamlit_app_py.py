@@ -829,47 +829,47 @@ try:
 
                                 st.markdown(f"""<br>""", unsafe_allow_html=True)
 
-                   else:
-                       for counter, problem_statement_data in enumerate(st.session_state["problem_statement_list"][i], 1):
-                           score = problem_statement_data["score"]
-                           year = problem_statement_data["year"]
-                           requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
-                           problem_statement = problem_statement_data["problem_statement"]
-                           contributor = problem_statement_data["contributor"]
-                           background = problem_statement_data["background"]
-                           desired_outcomes = problem_statement_data["desired_outcomes"]
-                           funding = problem_statement_data["funding"]
+                      else:
+                          for counter, problem_statement_data in enumerate(st.session_state["problem_statement_list"][i], 1):
+                              score = problem_statement_data["score"]
+                              year = problem_statement_data["year"]
+                              requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
+                              problem_statement = problem_statement_data["problem_statement"]
+                              contributor = problem_statement_data["contributor"]
+                              background = problem_statement_data["background"]
+                              desired_outcomes = problem_statement_data["desired_outcomes"]
+                              funding = problem_statement_data["funding"] 
 
-                           st.markdown(
-                               f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found {counter}:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""",
-                               unsafe_allow_html=True)
-                           st.markdown(f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}</span>""",
-                                       unsafe_allow_html=True)
-                           st.markdown(
-                               f"""<span style="word-wrap:break-word;"><strong>Requestor/Dept/Institution:</strong><br>{requestor}</span>""",
-                               unsafe_allow_html=True)
-                           st.markdown(
-                               f"""<span style="word-wrap:break-word;"><strong>Contributor:</strong><br>{contributor}</span>""",
-                               unsafe_allow_html=True)
+                              st.markdown(
+                                  f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found {counter}:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""",
+                                  unsafe_allow_html=True)
+                              st.markdown(f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}</span>""",
+                                          unsafe_allow_html=True)
+                              st.markdown(
+                                  f"""<span style="word-wrap:break-word;"><strong>Requestor/Dept/Institution:</strong><br>{requestor}</span>""",
+                                  unsafe_allow_html=True)
+                              st.markdown(
+                                  f"""<span style="word-wrap:break-word;"><strong>Contributor:</strong><br>{contributor}</span>""",
+                                  unsafe_allow_html=True)
 
-                           with st.expander("See more"):
-                               st.markdown(f"""<span style="word-wrap:break-word;"><strong>Background:</strong> {background}</span>""",
-                                           unsafe_allow_html=True)
-                               st.markdown(
-                                   f"""<span style="word-wrap:break-word;"><strong>Desired Outcomes:</strong> {desired_outcomes}</span>""",
-                                   unsafe_allow_html=True)
-                               st.markdown(f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}</span>""",
-                                           unsafe_allow_html=True)
+                              with st.expander("See more"):
+                                  st.markdown(f"""<span style="word-wrap:break-word;"><strong>Background:</strong> {background}</span>""",
+                                              unsafe_allow_html=True)
+                                  st.markdown(
+                                      f"""<span style="word-wrap:break-word;"><strong>Desired Outcomes:</strong> {desired_outcomes}</span>""",
+                                      unsafe_allow_html=True)
+                                  st.markdown(f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}</span>""",
+                                              unsafe_allow_html=True)
 
-                          st.markdown(f"""<br>""", unsafe_allow_html=True)
+                              st.markdown(f"""<br>""", unsafe_allow_html=True)
 
-                  st.message(f'Similar projects found in CHILD: {st.session_state["child_response"][i]}', key=str(i))
+                      st.message(f'Similar projects found in CHILD: {st.session_state["child_response"][i]}', key=str(i))
 
-                  accordion_html_code = st.session_state["accordion_html_code"][i]
-                  accordion_height = st.session_state["accordion_height"][i]
+                      accordion_html_code = st.session_state["accordion_html_code"][i]
+                      accordion_height = st.session_state["accordion_height"][i]
 
-                  if accordion_height > 0:
-                      st.components.v1.html(accordion_html_code, height=accordion_height)
+                      if accordion_height > 0:
+                          st.components.v1.html(accordion_html_code, height=accordion_height)
 
         except Exception as e:
             st.error('An error has occurred. Please try again.', icon="🚨")
@@ -885,4 +885,5 @@ try:
             st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
             print(traceback.format_exc())
     
+                       
 
