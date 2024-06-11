@@ -698,7 +698,7 @@ try:
         from pinecone import Pinecone, ServerlessSpec
 
         # Assuming you have the index name stored in a variable
-        problem_statement_index_name = "your_index_name_here"
+        problem_statement_index_name = "problem-statements-ttsh"
 
         # Initialize Pinecone
         pc = Pinecone(
