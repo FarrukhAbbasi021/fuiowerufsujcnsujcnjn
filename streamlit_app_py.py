@@ -402,7 +402,7 @@ try:
         child_pinecone_environment = os.environ['child_pinecone_environment']
         child_index_name = os.environ['child_index_name']
     except KeyError as e:
-        print(f"Error: Missing environment variable: {e}")]
+        print(f"Error: Missing environment variable: {e}")
 
     # Initialize connection to pinecone (get API key at app.pinecone.io)
     pinecone.init(
