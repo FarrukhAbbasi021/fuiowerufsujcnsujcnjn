@@ -369,11 +369,14 @@ try:
 
     # st.image('./banner_psms.jpg')
 
-    # Step 1: Get common environment variables
-
-    OPENAI_API_KEY = os.environ['openai_api_key']
-    openai.api_key = OPENAI_API_KEY
-    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+    import os
+    import openai
+    try:
+        OPENAI_API_KEY = os.environ['openai_api_key']
+        openai.api_key = OPENAI_API_KEY
+        os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+    except KeyError as e:
+        print(f"Environment variable error: {e}")
 
     text_field = "text"
     model_name = 'text-embedding-ada-002'
