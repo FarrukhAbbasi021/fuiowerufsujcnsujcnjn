@@ -393,11 +393,16 @@ try:
 
     # ==================================================== #
 
-    # Databaes 2: CHILD Pinecone.io Database
-    # =======================================================
-    child_pinecone_api_key = os.environ['child_pinecone_api_key']
-    child_pinecone_environment = os.environ['child_pinecone_environment']
-    child_index_name = os.environ['child_index_name']
+    import os
+    import pinecone
+
+    # Load environment variables for CHILD Pinecone.io Database
+    try:
+        child_pinecone_api_key = os.environ['child_pinecone_api_key']
+        child_pinecone_environment = os.environ['child_pinecone_environment']
+        child_index_name = os.environ['child_index_name']
+    except KeyError as e:
+        print(f"Error: Missing environment variable: {e}")]
 
     # Initialize connection to pinecone (get API key at app.pinecone.io)
     pinecone.init(
