@@ -856,7 +856,7 @@ def compare_two_sources():
                     dropdown_sources,
                     key=f"comparison_second_source_{last_index}",
                     on_change=compare_two_sources,
-                )
+try:                )
 
     if st.session_state['generated']:
         with response_container:
