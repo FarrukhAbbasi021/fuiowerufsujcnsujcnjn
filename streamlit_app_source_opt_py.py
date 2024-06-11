@@ -7,25 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1ketqoGr0ACoXWI6d5ot6pUfKB4oXHMBr
 """
 
-pip install langchain==0.0.263
-
-pip install openai==0.27.8
-
-pip install pinecone-client==4.1.0
-
-pip install PyPDF2==3.0.1
-
-pip install streamlit==1.25.0
-
-pip install streamlit_chat==0.1.1
-
-pip install streamlit_js_eval==0.1.5
-
-pip install tiktoken==0.4.0
-
-pip install tiktoken==0.4.0
-
-pip install typing-extensions==4.8.0
 
 import sys
 import os
