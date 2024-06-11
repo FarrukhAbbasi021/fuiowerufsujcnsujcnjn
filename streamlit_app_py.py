@@ -684,6 +684,11 @@ try:
             user_input = st.text_area("Prompt: Problem Statement", key='input', height=50)
             submit_button = st.form_submit_button(label='Send')
 
+
+        import pinecone
+
+        # Assuming `problem_statement_index_name` is defined and initialized
+        problem_statement_vectorstore = pinecone.VectorStore(problem_statement_index_name)
         if submit_button and user_input:
             problem_statement_list, child_response, child_sources = generate_response(
                 user_input)
