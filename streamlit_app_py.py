@@ -687,8 +687,12 @@ try:
 
         import pinecone
 
-        # Assuming `problem_statement_index_name` is defined and initialized
+        # Assuming you have the index name stored in a variable
+        problem_statement_index_name = "problem-statements-ttsh"
+
+        # Initialize the Pinecone index object
         problem_statement_index = pinecone.Index(problem_statement_index_name)
+
         if submit_button and user_input:
             problem_statement_list, child_response, child_sources = generate_response(
                 user_input)
