@@ -695,7 +695,30 @@ try:
         # Initialize the Pinecone index object
         pinecone.init(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
         problem_statement_index = pinecone.Index(problem_statement_index_name, host="http://pinecone.io/")
-        
+
+        import os
+        from pinecone import Pinecone, ServerlessSpec
+
+        # Assuming you have the index name stored in a variable
+        problem_statement_index_name = "your_index_name_here"
+
+        # Initialize Pinecone
+        pc = Pinecone(
+            api_key=problem_statement_pinecone_api_key,
+            environment=problem_statement_pinecone_environment
+        )
+
+        # Now create the index
+i       if problem_statement_index_name not in pc.list_indexes().names():
+            pc.create_index(
+                name=problem_statement_index_name,
+                dimension=1536,  # Replace with your index dimension
+                metric='cosine',  # Specify your desired metric
+                spec=ServerlessSpec(
+                    cloud='aws',  # Specify your desired cloud provider
+                    region='us-west-1'  # Specify your desired region
+                )
+           )
 
         if submit_button and user_input:
             problem_statement_list, child_response, child_sources = generate_response(
