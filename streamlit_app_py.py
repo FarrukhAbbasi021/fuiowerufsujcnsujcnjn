@@ -384,7 +384,6 @@ try:
         model=model_name,
         openai_api_key=OPENAI_API_KEY
     ) 
-        raise e
 
     text_field = "text"
     model_name = 'text-embedding-ada-002'
