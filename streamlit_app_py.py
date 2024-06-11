@@ -352,20 +352,7 @@ try:
 
     # st.image('./banner_psms.jpg')
 
-    # Step 1: Get common environment variables
-
-    openai_api_key = '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'
     
-    OPENAI_API_KEY = os.environ['openai_api_key']
-    openai.api_key = OPENAI_API_KEY
-    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
-
-    text_field = "text"
-    model_name = 'text-embedding-ada-002'
-    embed = OpenAIEmbeddings(
-        model=model_name,
-        openai_api_key=OPENAI_API_KEY
-    )
 
 
     # Step 2: Get Pinecone.io database specific environment variables
