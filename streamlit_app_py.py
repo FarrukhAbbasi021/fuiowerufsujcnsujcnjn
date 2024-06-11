@@ -707,9 +707,9 @@ try:
         )
 
         # Now create the index
-        if problem_statement_index_name not in pc.list_indexes().names():
+        if problem_statement_index_name.lower() not in pc.list_indexes().names():
             pc.create_index(
-                name=problem_statement_index_name,
+                name=problem_statement_index_name.lower(),
                 dimension=1536,  # Replace with your index dimension
                 metric='cosine',  # Specify your desired metric
                 spec=ServerlessSpec(
@@ -717,6 +717,7 @@ try:
                     region='us-west-1'  # Specify your desired region
                 )
            )
+
 
         if submit_button and user_input:
             problem_statement_list, child_response, child_sources = generate_response(
