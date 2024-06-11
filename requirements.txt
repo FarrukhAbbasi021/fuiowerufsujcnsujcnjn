@@ -10,3 +10,4 @@ tqdm==4.66.1
 typing_extensions==4.7.1
 matplotlib
 plotly
+scipy
