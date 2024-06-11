@@ -377,14 +377,17 @@ try:
     except KeyError as e:
         print(f"Error: Missing environment variable: {e}")
 
-    # Connect to the index
-    problem_statement_index = pinecone.Index(problem_statement_index_name)
-    # Wait a moment for the index to be fully initialized
-    time.sleep(1)
+    if 'problem_statement_index_name' in locals():
+        # Connect to the index
+        problem_statement_index = pinecone.Index(problem_statement_index_name)
+        # Wait a moment for the index to be fully initialized
+        time.sleep(1)
 
-    problem_statement_vectorstore = Pinecone(
-        problem_statement_index, embed.embed_query, text_field
-    )
+        problem_statement_vectorstore = Pinecone(
+            problem_statement_index, embed.embed_query, text_field
+        )
+    else:
+        print("Error: Index name not provided.")
 
 
 
