@@ -354,7 +354,7 @@ try:
 
     # Step 1: Get common environment variables
 
-    os.environ['OPENAI_API_KEY'] = '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'
+    openai_api_key = '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'
     
     OPENAI_API_KEY = os.environ['openai_api_key']
     openai.api_key = OPENAI_API_KEY
