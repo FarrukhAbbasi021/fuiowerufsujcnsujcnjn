@@ -384,7 +384,7 @@ try:
         model=model_name,
         openai_api_key=OPENAI_API_KEY
     )
-        raise e 
+       raise e 
 
     # Step 2: Get Pinecone.io database specific environment variables
 
