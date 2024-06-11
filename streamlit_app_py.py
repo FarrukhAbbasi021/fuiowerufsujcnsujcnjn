@@ -367,12 +367,15 @@ try:
 
     # Initialize connection to pinecone (get API key at app.pinecone.io)
     
-    pinecone.init(
-    # pc = Pinecone(
+    import os
+    import pinecone
 
-        api_key=problem_statement_pinecone_api_key,
-        environment=problem_statement_pinecone_environment
-    )
+    # Load environment variables
+    try:
+        problem_statement_pinecone_api_key = os.environ['problem_statement_pinecone_api_key']
+        problem_statement_pinecone_environment = os.environ['problem_statement_pinecone_environment']
+    except KeyError as e:
+        print(f"Error: Missing environment variable: {e}")
 
     # Connect to the index
     problem_statement_index = pinecone.Index(problem_statement_index_name)
