@@ -774,123 +774,115 @@ try:
             st.session_state['accordion_html_code'].append(accordion_html_code)
             st.session_state['accordion_height'].append(accordion_height)
 
-    if st.session_state['generated']:
-        with response_container:
-            for i in range(len(st.session_state['generated'])):
-                message(st.session_state["past"][i],
-                        is_user=True, key=str(i) + '_user')
+        import streamlit as st
+        import sys
+        import os
+        import traceback
 
-                if len(st.session_state["problem_statement_list"][i]) < 1:
-                    st.markdown(
-                        f"""<span style="word-wrap:break-word;">No similar problem statement found in the system. Do you want to submit a new problem statement?</span>""", unsafe_allow_html=True)
-                    st.markdown(
-                        f"""<span style="word-wrap:break-word;"><a href="mailto:chisel@chi.sg" target="_blank">Mail to chisel@chi.sg to submit a new problem statement</a></span>""", unsafe_allow_html=True)
-                elif len(st.session_state["problem_statement_list"][i]) == 1:
-                    for problem_statement_data in st.session_state["problem_statement_list"][i]:
-                        score = problem_statement_data["score"]
-                        year = problem_statement_data["year"]
-                        category = problem_statement_data["category"]
-                        requestor = problem_statement_data["requestor"]
-                        requestor = requestor.strip()
-                        requestor = requestor.replace('\n', '<br>')
-                        problem_statement = problem_statement_data["problem_statement"]
-                        contributor = problem_statement_data["contributor"]
-                        background = problem_statement_data["background"]
-                        desired_outcomes = problem_statement_data["desired_outcomes"]
-                        funding = problem_statement_data["funding"]
+        try:
+            if st.session_state['generated']:
+                with st.container():  # Changed response_container to st.container()
+                    for i in range(len(st.session_state['generated'])):
+                        st.message(st.session_state["past"][i], is_user=True, key=str(i) + '_user')
 
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""", unsafe_allow_html=True)
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}""", unsafe_allow_html=True)
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Requestor/Dept/Institution:</strong><br>{requestor}""", unsafe_allow_html=True)
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Contributor:</strong><br>{contributor}""", unsafe_allow_html=True)
-
-                        # See More
-                        with st.expander("See more"):
-                            # st.write()
+                        if len(st.session_state["problem_statement_list"][i]) < 1:
                             st.markdown(
-                                f"""<span style="word-wrap:break-word;"><strong>Category:</strong> {category}""", unsafe_allow_html=True)
+                                """<span style="word-wrap:break-word;">No similar problem statement found in the system. Do you want to submit a new problem statement?</span>""",
+                                unsafe_allow_html=True)
                             st.markdown(
-                                f"""<span style="word-wrap:break-word;"><strong>Background:</strong> {background}""", unsafe_allow_html=True)
-                            st.markdown(
-                                f"""<span style="word-wrap:break-word;"><strong>Desired Outcomes:</strong> {desired_outcomes}""", unsafe_allow_html=True)
-                            st.markdown(
-                                f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}""", unsafe_allow_html=True)
+                                """<span style="word-wrap:break-word;"><a href="mailto:chisel@chi.sg" target="_blank">Mail to chisel@chi.sg to submit a new problem statement</a></span>""",
+                                unsafe_allow_html=True)
+                        elif len(st.session_state["problem_statement_list"][i]) == 1:
+                            for problem_statement_data in st.session_state["problem_statement_list"][i]:
+                                score = problem_statement_data["score"]
+                                year = problem_statement_data["year"]
+                                category = problem_statement_data["category"]
+                                requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
+                                problem_statement = problem_statement_data["problem_statement"]
+                                contributor = problem_statement_data["contributor"]
+                                background = problem_statement_data["background"]
+                                desired_outcomes = problem_statement_data["desired_outcomes"]
+                                funding = problem_statement_data["funding"]
 
-                        st.markdown(
-                            f"""<br>""", unsafe_allow_html=True)
+                                st.markdown(
+                                    f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""",
+                                    unsafe_allow_html=True)
+                                st.markdown(f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}</span>""",
+                                            unsafe_allow_html=True)
+                                st.markdown(
+                                    f"""<span style="word-wrap:break-word;"><strong>Requestor/Dept/Institution:</strong><br>{requestor}</span>""",
+                                    unsafe_allow_html=True)
+                                st.markdown(
+                                    f"""<span style="word-wrap:break-word;"><strong>Contributor:</strong><br>{contributor}</span>""",
+                                    unsafe_allow_html=True)
 
-                else:
-                    counter = 0
-                    for problem_statement_data in st.session_state["problem_statement_list"][i]:
-                        counter = counter + 1
-                        score = problem_statement_data["score"]
-                        year = problem_statement_data["year"]
-                        requestor = problem_statement_data["requestor"]
-                        requestor = requestor.strip()
-                        requestor = requestor.replace('\n', '<br>')
-                        problem_statement = problem_statement_data["problem_statement"]
-                        contributor = problem_statement_data["contributor"]
-                        background = problem_statement_data["background"]
-                        desired_outcomes = problem_statement_data["desired_outcomes"]
-                        funding = problem_statement_data["funding"]
+                                with st.expander("See more"):
+                                    st.markdown(f"""<span style="word-wrap:break-word;"><strong>Category:</strong> {category}</span>""",
+                                                unsafe_allow_html=True)
+                                    st.markdown(f"""<span style="word-wrap:break-word;"><strong>Background:</strong> {background}</span>""",
+                                                unsafe_allow_html=True)
+                                    st.markdown(
+                                        f"""<span style="word-wrap:break-word;"><strong>Desired Outcomes:</strong> {desired_outcomes}</span>""",
+                                        unsafe_allow_html=True)
+                                    st.markdown(f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}</span>""",
+                                                unsafe_allow_html=True)
 
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found {counter}:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""", unsafe_allow_html=True)
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}""", unsafe_allow_html=True)
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Requestor/Dept/Institution:</strong><br>{requestor}""", unsafe_allow_html=True)
-                        st.markdown(
-                            f"""<span style="word-wrap:break-word;"><strong>Contributor:</strong><br>{contributor}""", unsafe_allow_html=True)
+                                st.markdown(f"""<br>""", unsafe_allow_html=True)
 
-                        # See More
-                        with st.expander("See more"):
-                            # st.write()
-                            st.markdown(
-                                f"""<span style="word-wrap:break-word;"><strong>Background:</strong> {background}""", unsafe_allow_html=True)
-                            st.markdown(
-                                f"""<span style="word-wrap:break-word;"><strong>Desired Outcomes:</strong> {desired_outcomes}""", unsafe_allow_html=True)
-                            st.markdown(
-                                f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}""", unsafe_allow_html=True)
+                   else:
+                       for counter, problem_statement_data in enumerate(st.session_state["problem_statement_list"][i], 1):
+                           score = problem_statement_data["score"]
+                           year = problem_statement_data["year"]
+                           requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
+                           problem_statement = problem_statement_data["problem_statement"]
+                           contributor = problem_statement_data["contributor"]
+                           background = problem_statement_data["background"]
+                           desired_outcomes = problem_statement_data["desired_outcomes"]
+                           funding = problem_statement_data["funding"]
 
-                        st.markdown(
-                            f"""<br>""", unsafe_allow_html=True)
+                           st.markdown(
+                               f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found {counter}:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""",
+                               unsafe_allow_html=True)
+                           st.markdown(f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}</span>""",
+                                       unsafe_allow_html=True)
+                           st.markdown(
+                               f"""<span style="word-wrap:break-word;"><strong>Requestor/Dept/Institution:</strong><br>{requestor}</span>""",
+                               unsafe_allow_html=True)
+                           st.markdown(
+                               f"""<span style="word-wrap:break-word;"><strong>Contributor:</strong><br>{contributor}</span>""",
+                               unsafe_allow_html=True)
 
-                # generated_answer = st.session_state["generated"][i]
-                # st.markdown(f"""<span style="word-wrap:break-word;"><strong>Summary:</strong><br>{generated_answer}""", unsafe_allow_html=True)
-                message(
-                    f'Similar projects found in CHILD: {st.session_state["child_response"][i]}', key=str(i))
+                           with st.expander("See more"):
+                               st.markdown(f"""<span style="word-wrap:break-word;"><strong>Background:</strong> {background}</span>""",
+                                           unsafe_allow_html=True)
+                               st.markdown(
+                                   f"""<span style="word-wrap:break-word;"><strong>Desired Outcomes:</strong> {desired_outcomes}</span>""",
+                                   unsafe_allow_html=True)
+                               st.markdown(f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}</span>""",
+                                           unsafe_allow_html=True)
 
-                # message(f'Answer from the CHILD Database: {st.session_state["child_response"][i]}', key=str(i))
+                          st.markdown(f"""<br>""", unsafe_allow_html=True)
 
-                accordion_html_code = st.session_state["accordion_html_code"][i]
-                accordion_height = st.session_state["accordion_height"][i]
+                  st.message(f'Similar projects found in CHILD: {st.session_state["child_response"][i]}', key=str(i))
 
-                if accordion_height > 0:
-                    components.html(
-                        accordion_html_code,
-                        height=accordion_height,
-                    )
+                  accordion_html_code = st.session_state["accordion_html_code"][i]
+                  accordion_height = st.session_state["accordion_height"][i]
 
+                  if accordion_height > 0:
+                      st.components.v1.html(accordion_html_code, height=accordion_height)
 
-except Exception as e:
-    error_message = ''
-    # st.text('Hello World')
-    st.error('An error has occurred. Please try again.', icon="🚨")
-    # Just print(e) is cleaner and more likely what you want,
-    # but if you insist on printing message specifically whenever possible...
-    if hasattr(e, 'message'):
-        error_message = e.message
-    else:
-        error_message = e
-    st.error('ERROR MESSAGE: {}'.format(error_message), icon="🚨")
-    exc_type, exc_obj, exc_tb = sys.exc_info()
-    fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-    st.error(f'Error Type: {exc_type}', icon="🚨")
-    st.error(f'File Name: {fname}', icon="🚨")
-    st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
-    print(traceback.format_exc())
+        except Exception as e:
+            st.error('An error has occurred. Please try again.', icon="🚨")
+            if hasattr(e, 'message'):
+                error_message = e.message
+            else:
+                error_message = str(e)
+            st.error(f'ERROR MESSAGE: {error_message}', icon="🚨")
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+            st.error(f'Error Type: {exc_type}', icon="🚨")
+            st.error(f'File Name: {fname}', icon="🚨")
+            st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
+            print(traceback.format_exc())
+    
+
