@@ -720,15 +720,36 @@ try:
 
 
         import pinecone
+        import faiss
+        import numpy as np
+        import streamlit as st
+
         # Assuming `problem_statement_index_name` is defined and initialized
         problem_statement_index_name = "problem-statements-ttsh"
 
         # Initialize Pinecone
         pc = pinecone.Pinecone(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
 
-        import problem_statement_vectorstore
-         
-        # Your code snippet goes here
+        # Initialize Faiss index
+        dimension = 1536  # Example dimension
+        index = faiss.IndexFlatL2(dimension)
+
+        # Assuming you have some precomputed vectors
+        vectors = np.random.random((100, dimension)).astype('float32')
+        index.add(vectors)
+
+        def generate_response(user_input):
+            # This is a placeholder function. Implement your logic here.
+            query_vector = np.random.random((1, dimension)).astype('float32')
+            k = 5
+            distances, indices = index.search(query_vector, k)
+    
+            problem_statement_list = indices.tolist()
+            child_response = "Generated response based on input"
+            child_sources = "List of sources"
+            return problem_statement_list, child_response, child_sources
+
+
         if submit_button and user_input:
             problem_statement_list, child_response, child_sources = generate_response(user_input)
             st.session_state['past'].append(user_input)
@@ -741,6 +762,7 @@ try:
             accordion_height = 0
             sources = child_sources.strip()
             # st.sidebar.text(f'sources: {sources}')
+
 
             if (len(sources)) >= 5:
                 query = user_input
