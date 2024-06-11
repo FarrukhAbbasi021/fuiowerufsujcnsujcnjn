@@ -373,6 +373,8 @@ try:
     import openai
     from openai.embeddings_utils import get_embedding
 
+    os.environ['OPENAI_API_KEY'] = 'your-api-key-here'
+    
     # Try to get the API key from environment variables
     try:
         OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
