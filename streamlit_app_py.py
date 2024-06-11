@@ -884,6 +884,3 @@ try:
             st.error(f'File Name: {fname}', icon="🚨")
             st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
             print(traceback.format_exc())
-    
-                       
-
