@@ -726,9 +726,6 @@ try:
         # Initialize Pinecone
         pc = pinecone.Pinecone(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
 
-        # Get the index directly
-        problem_statement_vectorstore = pc.index(problem_statement_index_name)
-
         # Your code snippet goes here
         if submit_button and user_input:
             problem_statement_list, child_response, child_sources = generate_response(user_input)
