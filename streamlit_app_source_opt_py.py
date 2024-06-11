@@ -470,8 +470,7 @@ try:
     # wait a moment for the index to be fully initialized
     time.sleep(1)
 
-    # Setting page title and header
-    # st.set_page_config(page_title="CHILD ChatGPT", page_icon=":robot_face:")
+    
 
     st.markdown("<h1 style='text-align: center;'>CHILD Project Collection</h1>",
                 unsafe_allow_html=True)
