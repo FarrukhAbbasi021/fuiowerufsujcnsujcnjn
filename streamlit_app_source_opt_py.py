@@ -874,7 +874,7 @@ def compare_two_sources():
                         accordion_html_code,
                         height=accordion_height,
                     )
-
+try:
                 if i < len(st.session_state.source_comparison_list):
                     source_comparison_html_code = st.session_state.source_comparison_list[i]
                     source_comparison_html_code = str(
