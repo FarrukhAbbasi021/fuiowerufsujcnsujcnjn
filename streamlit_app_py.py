@@ -738,10 +738,10 @@ try:
             st.session_state['problem_statement_list'].append(problem_statement_list)
             st.session_state['child_response'].append(child_response)
 
-    accordion_html_code = ""
-    accordion_height = 0
-    sources = child_sources.strip()
-    # st.sidebar.text(f'sources: {sources}')
+            accordion_html_code = ""
+            accordion_height = 0
+            sources = child_sources.strip()
+            # st.sidebar.text(f'sources: {sources}')
 
             if (len(sources)) >= 5:
                 query = user_input
