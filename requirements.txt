@@ -12,3 +12,4 @@ matplotlib
 plotly
 scipy
 scikit-learn
+problem_statement_vectorstore
