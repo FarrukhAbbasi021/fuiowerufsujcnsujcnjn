@@ -689,6 +689,7 @@ try:
 
         # Assuming you have the index name stored in a variable
         problem_statement_index_name = "problem-statements-ttsh"
+        problem_statement_pinecone_api_key="a7f95b87-bb0a-4202-b2f0-5ea2d682dc78"
 
         # Initialize the Pinecone index object
         pinecone.init(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
