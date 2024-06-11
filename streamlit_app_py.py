@@ -40,7 +40,7 @@ from langchain.prompts.chat import (
 )
 
 # Set API keys
-openai_api_key = os.getenv('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')
+openai_api_key = os.getenv('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 ')
 pinecone_api_key = os.getenv('4e01febc-f75b-42ca-b644-77e585d600e8')
 pinecone_env = os.getenv('PINECONE_ENV')
 
