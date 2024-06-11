@@ -871,16 +871,16 @@ try:
                         if accordion_height > 0:
                             st.components.v1.html(accordion_html_code, height=accordion_height)
 
-        except Exception as e:
-            st.error('An error has occurred. Please try again.', icon="🚨")
-            if hasattr(e, 'message'):
-                error_message = e.message
-            else:
-                error_message = str(e)
-            st.error(f'ERROR MESSAGE: {error_message}', icon="🚨")
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-            st.error(f'Error Type: {exc_type}', icon="🚨")
-            st.error(f'File Name: {fname}', icon="🚨")
-            st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
-            print(traceback.format_exc())  # Ensure this line is properly indented
+except Exception as e:
+    st.error('An error has occurred. Please try again.', icon="🚨")
+    if hasattr(e, 'message'):
+        error_message = e.message
+    else:
+        error_message = str(e)
+    st.error(f'ERROR MESSAGE: {error_message}', icon="🚨")
+    exc_type, exc_obj, exc_tb = sys.exc_info()
+    fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
+    st.error(f'Error Type: {exc_type}', icon="🚨")
+    st.error(f'File Name: {fname}', icon="🚨")
+    st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
+    print(traceback.format_exc())
