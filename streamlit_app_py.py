@@ -709,7 +709,7 @@ try:
         )
 
         # Now create the index
-i       if problem_statement_index_name not in pc.list_indexes().names():
+        if problem_statement_index_name not in pc.list_indexes().names():
             pc.create_index(
                 name=problem_statement_index_name,
                 dimension=1536,  # Replace with your index dimension
