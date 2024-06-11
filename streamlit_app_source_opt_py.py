@@ -438,9 +438,7 @@ def compare_two_sources():
         st.error('ERROR MESSAGE: {}'.format(error_message))
 
 
-try:
-    st.set_page_config(page_title="CHILD Project Collection",
-                       page_icon=":robot_face:")
+
     # system message to 'prime' the model
     primer = f"""You are Q&A bot. A highly intelligent system that answers
                 user questions based on the information provided by the user above
@@ -471,7 +469,9 @@ try:
     time.sleep(1)
 
     
-
+    # Setting page title and header
+    # st.set_page_config(page_title="CHILD ChatGPT", page_icon=":robot_face:")
+    
     st.markdown("<h1 style='text-align: center;'>CHILD Project Collection</h1>",
                 unsafe_allow_html=True)
 
