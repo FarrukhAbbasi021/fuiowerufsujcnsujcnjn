@@ -40,7 +40,7 @@ from langchain.prompts.chat import (
 )
 
 # Set API keys
-openai_api_key = os.getenv('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 ')
+openai_api_key = os.getenv('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 ')
 pinecone_api_key = os.getenv('4e01febc-f75b-42ca-b644-77e585d600e8')
 pinecone_env = os.getenv('PINECONE_ENV')
 
@@ -371,19 +371,29 @@ try:
 
     import os
     import openai
+    from openai.embeddings_utils import get_embedding
 
+    # Try to get the API key from environment variables
     try:
-        OPENAI_API_KEY = os.environ['openai_api_key']
-        openai.api_key = OPENAI_API_KEY
-        os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
-    except KeyError as e:
-        print(f"Environment variable error: {e}")
+        OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
+    except KeyError:
+        # Handle the error or provide a default value or message
+        raise KeyError("The environment variable 'OPENAI_API_KEY' is not defined. Please set it in your environment.")
+
+    # Set the API key for OpenAI
+    openai.api_key = OPENAI_API_KEY
+
+    # You can also set it in the environment variables for further use
+    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+
+    # Example usage of the OpenAI Embeddings
     text_field = "text"
     model_name = 'text-embedding-ada-002'
-    embed = OpenAIEmbeddings(
+    embed = get_embedding(
         model=model_name,
-        openai_api_key=OPENAI_API_KEY
-    ) 
+        api_key=OPENAI_API_KEY
+    )
+
 
     text_field = "text"
     model_name = 'text-embedding-ada-002'
