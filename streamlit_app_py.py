@@ -371,20 +371,27 @@ try:
 
     import os
     import openai
+
     try:
         OPENAI_API_KEY = os.environ['openai_api_key']
         openai.api_key = OPENAI_API_KEY
         os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
     except KeyError as e:
         print(f"Environment variable error: {e}")
+    text_field = "text"
+    model_name = 'text-embedding-ada-002'
+    embed = OpenAIEmbeddings(
+        model=model_name,
+        openai_api_key=OPENAI_API_KEY
+    ) 
+        raise e
 
     text_field = "text"
     model_name = 'text-embedding-ada-002'
     embed = OpenAIEmbeddings(
         model=model_name,
         openai_api_key=OPENAI_API_KEY
-    )
-       raise e 
+    ) 
 
     # Step 2: Get Pinecone.io database specific environment variables
 
