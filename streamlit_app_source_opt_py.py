@@ -420,10 +420,9 @@ def compare_two_sources():
             if len(st.session_state.sources) > 0:
                 last_index = len(st.session_state.sources) - 1
                 # st.sidebar.text(f'last_index: {last_index}')
-    try:
-     if last_index >= 0:
-                    st.session_state.source_comparison_list[last_index] = comparison_info
-    pass      
+    
+             if last_index >= 0:
+                            st.session_state.source_comparison_list[last_index] = comparison_info      
                
     except Exception as e:
         error_message = ''
