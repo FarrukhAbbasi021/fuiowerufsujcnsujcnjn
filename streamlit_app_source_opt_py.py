@@ -857,12 +857,11 @@ def compare_two_sources():
                     key=f"comparison_second_source_{last_index}",
                     on_change=compare_two_sources,
                 )
-try: 
-    if st.session_state['generated']:
+try:
+    if 'generated' in st.session_state and st.session_state['generated']:
         with response_container:
             for i in range(len(st.session_state['generated'])):
-                message(st.session_state["past"][i],
-                        is_user=True, key=str(i) + '_user')
+                message(st.session_state["past"][i], is_user=True, key=str(i) + '_user')
                 message(st.session_state["generated"][i], key=str(i))
 
                 accordion_html_code = st.session_state["accordion_html_code"][i]
