@@ -719,21 +719,30 @@ try:
            )
 
 
+        import pinecone
+        # Assuming `problem_statement_index_name` is defined and initialized
+        problem_statement_index_name = "problem-statements-ttsh"
+
+        # Initialize Pinecone
+        pc = pinecone.Pinecone(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
+
+        # Assuming `problem_statement_index_name` is a valid index name
+        problem_statement_vectorstore = pc.index(problem_statement_index_name)
+
+        # Your code snippet goes here
         if submit_button and user_input:
-            problem_statement_list, child_response, child_sources = generate_response(
-                user_input)
+            problem_statement_list, child_response, child_sources = generate_response(user_input)
             st.session_state['past'].append(user_input)
             st.session_state['generated'].append("")
-            # st.session_state['generated'].append(problem_statement_response)
             st.session_state['model_name'].append(model_name)
-            st.session_state['problem_statement_list'].append(
-                problem_statement_list)
+            st.session_state['problem_statement_list'].append(problem_statement_list)
             st.session_state['child_response'].append(child_response)
 
-            accordion_html_code = ""
-            accordion_height = 0
-            sources = child_sources.strip()
-            # st.sidebar.text(f'sources: {sources}')
+    accordion_html_code = ""
+    accordion_height = 0
+    sources = child_sources.strip()
+    # st.sidebar.text(f'sources: {sources}')
+
             if (len(sources)) >= 5:
                 query = user_input
                 answer_type = "Chat on projects with sources and summaries"
