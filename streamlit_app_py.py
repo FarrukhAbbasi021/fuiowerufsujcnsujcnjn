@@ -690,9 +690,9 @@ try:
         # Assuming you have the index name stored in a variable
         problem_statement_index_name = "problem-statements-ttsh"
 
-       # Initialize the Pinecone index object
-       pinecone.init(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
-       problem_statement_index = pinecone.Index(problem_statement_index_name, host="http://pinecone.io/")
+        # Initialize the Pinecone index object
+        pinecone.init(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
+        problem_statement_index = pinecone.Index(problem_statement_index_name, host="http://pinecone.io/")
 
         if submit_button and user_input:
             problem_statement_list, child_response, child_sources = generate_response(
