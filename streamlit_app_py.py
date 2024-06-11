@@ -404,12 +404,12 @@ try:
     except KeyError as e:
         print(f"Error: Missing environment variable: {e}")
 
-    # Initialize connection to pinecone (get API key at app.pinecone.io)
-    pinecone.init(
-    # pc = Pinecone(
-        api_key=child_pinecone_api_key,
-        environment=child_pinecone_environment  # find next to API key in console
-    )
+    if all(key in locals() for key in ['68636eff-3870-49b8-9f7f-799d1f82d468', 'us-east-1', 'child-serverless']):
+       pinecone.init(api_key=child_pinecone_api_key, environment=child_pinecone_environment)
+       child_index = pinecone.Index(child_index_name)
+       # Continue with other operations related to the CHILD database
+    else:
+        print("Error: Missing one or more environment variables for the CHILD Pinecone.io Database.")
 
     # Connect to the index
     child_index = pinecone.Index(child_index_name)
