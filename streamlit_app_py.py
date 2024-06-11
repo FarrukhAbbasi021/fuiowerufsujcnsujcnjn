@@ -363,7 +363,7 @@ try:
         problem_statement_pinecone_environment = os.environ['problem_statement_pinecone_environment']
         problem_statement_index_name = os.environ['problem_statement_index_name']
     except KeyError as e:
-         print(f"Error: Missing environment variable: {e}")]
+         print(f"Error: Missing environment variable: {e}")
 
     # Initialize connection to pinecone (get API key at app.pinecone.io)
     
