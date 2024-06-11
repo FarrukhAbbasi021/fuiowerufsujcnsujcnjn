@@ -469,7 +469,7 @@ try:
         # model = "gpt-4-turbo"
 
    # Define your OpenAI API key
-   OPENAI_API_KEY = "your_openai_api_key_here"  # Replace "your_openai_api_key_here" with your actual API key
+   OPENAI_API_KEY = "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"
 
    # Initialize the large language model
    llm = ChatOpenAI(
