@@ -692,9 +692,7 @@ try:
         problem_statement_pinecone_api_key="a7f95b87-bb0a-4202-b2f0-5ea2d682dc78"
         problem_statement_pinecone_environment = "us-east-1"
 
-        # Initialize the Pinecone index object
-        pinecone.init(api_key=problem_statement_pinecone_api_key, environment=problem_statement_pinecone_environment)
-        problem_statement_index = pinecone.Index(problem_statement_index_name, host="http://pinecone.io/")
+        
 
         import os
         from pinecone import Pinecone, ServerlessSpec
