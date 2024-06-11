@@ -468,13 +468,17 @@ try:
         # model = "gpt-4-1106-preview"
         # model = "gpt-4-turbo"
 
-    # Initialize the large language model
-    llm = ChatOpenAI(
-        temperature=0,
-        openai_api_key=OPENAI_API_KEY,
-        model_name=model,
-        verbose=False,
-    )
+   # Define your OpenAI API key
+   OPENAI_API_KEY = "your_openai_api_key_here"  # Replace "your_openai_api_key_here" with your actual API key
+
+   # Initialize the large language model
+   llm = ChatOpenAI(
+       temperature=0,
+       openai_api_key=OPENAI_API_KEY,
+       model_name=model,
+       verbose=False,
+   )
+
 
     # reset everything
     # if clear_button:
