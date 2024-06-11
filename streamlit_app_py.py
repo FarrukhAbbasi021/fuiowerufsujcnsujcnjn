@@ -357,11 +357,13 @@ try:
 
     # Step 2: Get Pinecone.io database specific environment variables
 
-    # Databases 1: Problem Statement Pinecone.io Database
-    # =======================================================
-    problem_statement_pinecone_api_key = os.environ['problem_statement_pinecone_api_key']
-    problem_statement_pinecone_environment = os.environ['problem_statement_pinecone_environment']
-    problem_statement_index_name = os.environ['problem_statement_index_name']
+    import os
+    try:
+        problem_statement_pinecone_api_key = os.environ['problem_statement_pinecone_api_key']
+        problem_statement_pinecone_environment = os.environ['problem_statement_pinecone_environment']
+        problem_statement_index_name = os.environ['problem_statement_index_name']
+     except KeyError as e:
+         print(f"Error: Missing environment variable: {e}")]
 
     # Initialize connection to pinecone (get API key at app.pinecone.io)
     
