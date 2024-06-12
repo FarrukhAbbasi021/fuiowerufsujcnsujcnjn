@@ -884,10 +884,3 @@ try:
                              st.error(f'Error Type: {exc_type}', icon="🚨")
                              st.error(f'File Name: {fname}', icon="🚨")
                              st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
-                             print(traceback.format_exc())
-                        try:
-                            # Your code that might raise an exception goes here
-                            print('We appreciate the opportunity to serve you')
-                            # raise ValueError("This is a sample error message.")  # Uncomment this line to simulate an error
-                        except Exception as e:
-                            handle_error(e)
