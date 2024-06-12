@@ -889,5 +889,3 @@ try:
 
                         except Exception as e:
                             handle_error(e)
-
-                        
