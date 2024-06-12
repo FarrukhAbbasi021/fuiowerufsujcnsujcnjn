@@ -892,5 +892,3 @@ try:
     
             # Print the full traceback
             print(traceback.format_exc())
-    finally:
-        print('Have a Nice Day')
