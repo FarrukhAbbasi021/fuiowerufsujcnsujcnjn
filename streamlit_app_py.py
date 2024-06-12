@@ -785,14 +785,14 @@ try:
                     for i in range(len(st.session_state['generated'])):
                         st.message(st.session_state["past"][i], is_user=True, key=str(i) + '_user')
 
-                       if len(st.session_state["problem_statement_list"][i]) < 1:
+                        if len(st.session_state["problem_statement_list"][i]) < 1:
                             st.markdown(
-                                """<span style="word-wrap:break-word;">No similar problem statement found in the system. Do you want to submit a new problem statement?</span>""",
+                                f"""<span style="word-wrap:break-word;">No similar problem statement found in the system. Do you want to submit a new problem statement?</span>""",
                                 unsafe_allow_html=True)
                             st.markdown(
-                               """<span style="word-wrap:break-word;"><a href="mailto:chisel@chi.sg" target="_blank">Mail to chisel@chi.sg to submit a new problem statement</a></span>""",
+                                f"""<span style="word-wrap:break-word;"><a href="mailto:chisel@chi.sg" target="_blank">Mail to chisel@chi.sg to submit a new problem statement</a></span>""",
                                 unsafe_allow_html=True)
-                       elif len(st.session_state["problem_statement_list"][i]) == 1:
+                        elif len(st.session_state["problem_statement_list"][i]) == 1:
                             for problem_statement_data in st.session_state["problem_statement_list"][i]:
                                 score = problem_statement_data["score"]
                                 year = problem_statement_data["year"]
