@@ -827,7 +827,7 @@ try:
                                     st.markdown(f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}</span>""",
                                                 unsafe_allow_html=True)
 
-                               st.markdown(f"""<br>""", unsafe_allow_html=True)
+                                st.markdown(f"""<br>""", unsafe_allow_html=True)
 
                         else:
                             for counter, problem_statement_data in enumerate(st.session_state["problem_statement_list"][i], 1):
