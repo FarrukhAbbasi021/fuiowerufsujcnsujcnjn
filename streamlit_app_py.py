@@ -894,5 +894,4 @@ try:
             print(traceback.format_exc())
 
         finally:
-            # Code that you want to run regardless of exception occurrence
             print('Have a Nice Day')
