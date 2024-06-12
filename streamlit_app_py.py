@@ -762,8 +762,7 @@ try:
             accordion_height = 0
             sources = child_sources.strip()
             # st.sidebar.text(f'sources: {sources}')
-
-
+         
         if (len(sources)) >= 5:
                 query = user_input
                 answer_type = "Chat on projects with sources and summaries"
@@ -774,10 +773,7 @@ try:
             st.session_state['accordion_html_code'].append(accordion_html_code)
             st.session_state['accordion_height'].append(accordion_height)
 
-        import streamlit as st
-        import sys
-        import os
-        import traceback
+        
 
             if st.session_state['generated']:
                 with st.container():  # Changed response_container to st.container()
