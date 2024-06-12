@@ -865,7 +865,8 @@ try:
 
                         if accordion_height > 0:
                             st.components.v1.html(accordion_html_code, height=accordion_height)
-            
+                        except Exception as e:",
+                            handle_error(e)
                         def handle_error(e):
                              error_message = ''
                              st.error('An error has occurred. Please try again.', icon="🚨")
