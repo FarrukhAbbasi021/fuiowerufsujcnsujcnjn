@@ -31,25 +31,23 @@ pinecone_api_key = "68636eff-3870-49b8-9f7f-799d1f82d468"
 # Initialize Pinecone instance
 pinecone_instance = Pinecone(api_key=pinecone_api_key)
 
+# Create Pinecone instance
+pinecone_instance = pinecone.Index("example-index")
+
 # Define the name of the index to delete
 index_name = f"child-serverless-{hashlib.md5(str(uuid.uuid4()).encode()).hexdigest()[:10]}"
 
-# Check if the index exists
-
-if index_name in pinecone_instance.list_indexes():
-    # Delete the existing index
+# Check if the index exists and delete if it does
+if index_name in pinecone.list_indexes():
     pinecone_instance.delete_index(name=index_name)
     print(f"Index '{index_name}' deleted successfully.")
 else:
     print(f"Index '{index_name}' does not exist.")
-import pinecone
 
-pinecone.init(api_key='68636eff-3870-49b8-9f7f-799d1f82d468', environment='us-east-1')
-
-index_name = "child-serverless"
-dimension = 1536
-metric = "cosine"
-
+# Create an index if not exists
+if index_name not in pinecone.list_indexes():
+    pinecone_instance.create_index(name=index_name, dimension=1536, metric="cosine")
+    print(f"Index '{index_name}' created successfully.")
 # Define the serverless specification with appropriate cloud provider and region
 cloud = "aws"  # AWS
 region = "us-east-1"  # Correct region specification
