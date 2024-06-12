@@ -891,4 +891,4 @@ try:
             st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
     
             # Print the full traceback
-            print(traceback.format_exc(
+            print(traceback.format_exc())
