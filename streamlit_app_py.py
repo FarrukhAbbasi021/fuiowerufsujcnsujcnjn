@@ -890,5 +890,4 @@ try:
                         except Exception as e:
                             handle_error(e)
 
-                        finally:
-                            print(traceback.format_exc())
+                        
