@@ -892,3 +892,7 @@ try:
     
             # Print the full traceback
             print(traceback.format_exc())
+
+        finally:
+            # Code that you want to run regardless of exception occurrence
+            st.text('This code runs no matter what.')
