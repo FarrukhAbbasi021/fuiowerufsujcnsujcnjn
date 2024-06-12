@@ -31,8 +31,9 @@ openai.api_key = openai_api_key
 # Set API key for Pinecone
 pinecone_api_key = "68636eff-3870-49b8-9f7f-799d1f82d468"
 
-# Initialize Pinecone
-pinecone.init(api_key='68636eff-3870-49b8-9f7f-799d1f82d468', environment='us-east-1')
+# Set API key and environment for Pinecone
+pinecone.set_api_key(pinecone_api_key)
+pinecone.set_environment('us-east-1')
 
 # Create Pinecone instance
 pinecone_instance = pinecone.Index("child-serverless")
