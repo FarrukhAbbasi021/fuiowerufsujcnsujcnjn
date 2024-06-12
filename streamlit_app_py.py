@@ -774,8 +774,8 @@ try:
             st.session_state['accordion_height'].append(accordion_height)
 
         
-            try:
-               if st.session_state['generated']:
+            
+    if st.session_state['generated']:
                 with st.container():  # Changed response_container to st.container()
                     for i in range(len(st.session_state['generated'])):
                         st.message(st.session_state["past"][i], is_user=True, key=str(i) + '_user')
