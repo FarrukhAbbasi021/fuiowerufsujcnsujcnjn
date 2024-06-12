@@ -779,7 +779,6 @@ try:
         import os
         import traceback
 
-        try:
             if st.session_state['generated']:
                 with st.container():  # Changed response_container to st.container()
                     for i in range(len(st.session_state['generated'])):
