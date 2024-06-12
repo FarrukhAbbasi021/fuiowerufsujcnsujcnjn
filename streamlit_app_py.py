@@ -763,7 +763,7 @@ try:
             sources = child_sources.strip()
             # st.sidebar.text(f'sources: {sources}')
          
-        if (len(sources)) >= 5:
+            if (len(sources)) >= 5:
                 query = user_input
                 answer_type = "Chat on projects with sources and summaries"
                 accordion_html_code, accordion_height = accordion(
