@@ -29,7 +29,7 @@ openai.organization = openai_organization
 openai.api_key = openai_api_key
 
 # Set API key for Pinecone
-pinecone_api_key = "68636eff-3870-49b8-9f7f-799d1f82d468"
+pinecone_api_key = "Faa53568-83bd-4a0c-bb39-6d404d363774"
 
 # Set API key and environment for Pinecone
 pinecone.set_api_key(pinecone_api_key)
