@@ -797,7 +797,7 @@ try:
                                 score = problem_statement_data["score"]
                                 year = problem_statement_data["year"]
                                 category = problem_statement_data["category"]
-                              requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
+                                requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
                                 problem_statement = problem_statement_data["problem_statement"]
                                 contributor = problem_statement_data["contributor"]
                                 background = problem_statement_data["background"]
