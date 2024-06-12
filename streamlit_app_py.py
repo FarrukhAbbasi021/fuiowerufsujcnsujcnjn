@@ -870,7 +870,7 @@ try:
 
                         if accordion_height > 0:
                             st.components.v1.html(accordion_html_code, height=accordion_height)
-            pass
+            
         except Exception as e:
             error_message = ''
             st.error('An error has occurred. Please try again.', icon="🚨")
@@ -892,6 +892,5 @@ try:
     
             # Print the full traceback
             print(traceback.format_exc())
-
         finally:
             print('Have a Nice Day')
