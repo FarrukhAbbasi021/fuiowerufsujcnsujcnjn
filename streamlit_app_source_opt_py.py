@@ -32,7 +32,7 @@ pinecone_api_key = "68636eff-3870-49b8-9f7f-799d1f82d468"
 pinecone_instance = Pinecone(api_key=pinecone_api_key)
 
 # Create Pinecone instance
-pinecone_instance = pinecone.Index("example-index")
+pinecone_instance = pinecone.Index("child-serverless")
 
 # Define the name of the index to delete
 index_name = f"child-serverless-{hashlib.md5(str(uuid.uuid4()).encode()).hexdigest()[:10]}"
