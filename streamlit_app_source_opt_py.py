@@ -42,11 +42,19 @@ if index_name in pinecone_instance.list_indexes():
     print(f"Index '{index_name}' deleted successfully.")
 else:
     print(f"Index '{index_name}' does not exist.")
+import pinecone
+
+pinecone.init(api_key='68636eff-3870-49b8-9f7f-799d1f82d468', environment='us-east-1')
+
+index_name = "child-serverless"
+dimension = 1536
+metric = "cosine"
 
 # Define the serverless specification with appropriate cloud provider and region
 cloud = "aws"  # AWS
 region = "us-east-1"  # Correct region specification
 spec = ServerlessSpec(cloud=cloud, region=region)
+
 
 # Create the new index
 index = pinecone_instance.create_index(name=index_name, dimension=1536, metric="cosine", spec=spec)
