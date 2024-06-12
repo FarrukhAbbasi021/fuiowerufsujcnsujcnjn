@@ -895,4 +895,4 @@ try:
 
         finally:
             # Code that you want to run regardless of exception occurrence
-            st.text('This code runs no matter what.')
+            print('Have a Nice Day')
