@@ -785,19 +785,19 @@ try:
                     for i in range(len(st.session_state['generated'])):
                         st.message(st.session_state["past"][i], is_user=True, key=str(i) + '_user')
 
-                        if len(st.session_state["problem_statement_list"][i]) < 1:
+                       if len(st.session_state["problem_statement_list"][i]) < 1:
                             st.markdown(
                                 """<span style="word-wrap:break-word;">No similar problem statement found in the system. Do you want to submit a new problem statement?</span>""",
                                 unsafe_allow_html=True)
                             st.markdown(
-                                """<span style="word-wrap:break-word;"><a href="mailto:chisel@chi.sg" target="_blank">Mail to chisel@chi.sg to submit a new problem statement</a></span>""",
+                               """<span style="word-wrap:break-word;"><a href="mailto:chisel@chi.sg" target="_blank">Mail to chisel@chi.sg to submit a new problem statement</a></span>""",
                                 unsafe_allow_html=True)
-                        elif len(st.session_state["problem_statement_list"][i]) == 1:
+                       elif len(st.session_state["problem_statement_list"][i]) == 1:
                             for problem_statement_data in st.session_state["problem_statement_list"][i]:
                                 score = problem_statement_data["score"]
                                 year = problem_statement_data["year"]
                                 category = problem_statement_data["category"]
-                                requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
+                              requestor = problem_statement_data["requestor"].strip().replace('\n', '<br>')
                                 problem_statement = problem_statement_data["problem_statement"]
                                 contributor = problem_statement_data["contributor"]
                                 background = problem_statement_data["background"]
@@ -827,7 +827,7 @@ try:
                                     st.markdown(f"""<span style="word-wrap:break-word;"><strong>Funding:</strong> {funding}</span>""",
                                                 unsafe_allow_html=True)
 
-                                st.markdown(f"""<br>""", unsafe_allow_html=True)
+                               st.markdown(f"""<br>""", unsafe_allow_html=True)
 
                         else:
                             for counter, problem_statement_data in enumerate(st.session_state["problem_statement_list"][i], 1):
@@ -840,7 +840,7 @@ try:
                                 desired_outcomes = problem_statement_data["desired_outcomes"]
                                 funding = problem_statement_data["funding"] 
 
-                                st.markdown(
+                               st.markdown(
                                     f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found {counter}:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""",
                                     unsafe_allow_html=True)
                                 st.markdown(f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}</span>""",
