@@ -873,18 +873,22 @@ try:
             pass
         except Exception as e:
             error_message = ''
-            # st.text('Hello World')
             st.error('An error has occurred. Please try again.', icon="🚨")
-            # Just print(e) is cleaner and more likely what you want,
-            # but if you insist on printing message specifically whenever possible...
+    
+            # Determine the error message
             if hasattr(e, 'message'):
                 error_message = e.message
             else:
                 error_message = e
+    
             st.error('ERROR MESSAGE: {}'.format(error_message), icon="🚨")
+    
+            # Get exception details
             exc_type, exc_obj, exc_tb = sys.exc_info()
             fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
             st.error(f'Error Type: {exc_type}', icon="🚨")
             st.error(f'File Name: {fname}', icon="🚨")
             st.error(f'Line Number: {exc_tb.tb_lineno}', icon="🚨")
-            print(traceback.format_exc())
+    
+            # Print the full traceback
+            print(traceback.format_exc(
