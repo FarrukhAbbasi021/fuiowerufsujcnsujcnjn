@@ -840,7 +840,7 @@ try:
                                 desired_outcomes = problem_statement_data["desired_outcomes"]
                                 funding = problem_statement_data["funding"] 
 
-                               st.markdown(
+                                st.markdown(
                                     f"""<span style="word-wrap:break-word;"><strong>Problem Statement Found {counter}:</strong> {problem_statement}</span> <span style="word-wrap:break-word; font-style: italic;">(Relevance Score: {score}%)</span>""",
                                     unsafe_allow_html=True)
                                 st.markdown(f"""<span style="word-wrap:break-word;"><strong>Year:</strong> {year}</span>""",
