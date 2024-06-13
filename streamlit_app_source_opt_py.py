@@ -31,6 +31,9 @@ openai.api_key = openai_api_key
 # Set API key for Pinecone
 pinecone_api_key = "3986634d-212b-4aa6-9ff2-4e774220e38e"
 
+# Initialize Pinecone
+pinecone.init(api_key=pinecone_api_key, environment='us-east-1')
+
 # Set API key and environment for Pinecone
 pinecone.set_api_key(pinecone_api_key)
 pinecone.set_environment('us-east-1')
