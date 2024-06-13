@@ -36,8 +36,7 @@ import pinecone
 # Print the Pinecone version to determine the correct method
 print("Pinecone version:", pinecone.__version__)
 
-# Example: Hypothetical client initialization (adjust based on actual documentation)
-client = pinecone.Client(api_key="3986634d-212b-4aa6-9ff2-4e774220e38e", environment="us-east-1")
+pinecone.init(api_key="3986634d-212b-4aa6-9ff2-4e774220e38e", environment="us-east-1")
 
 
 # Set API key and environment for Pinecone
