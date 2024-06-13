@@ -31,12 +31,7 @@ openai.api_key = openai_api_key
 # Set API key for Pinecone
 pinecone_api_key = "466eb1c0-bd8e-4d70-a299-825a796933c0"
 
-import pinecone
-
-# Print the Pinecone version to determine the correct method
-print("Pinecone version:", pinecone.__version__)
-
-pinecone.init(api_key="3986634d-212b-4aa6-9ff2-4e774220e38e", environment="us-east-1")
+For Pinecone Version < 2.0:
 
 
 # Set API key and environment for Pinecone
