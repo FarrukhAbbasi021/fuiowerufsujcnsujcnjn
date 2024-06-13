@@ -33,8 +33,9 @@ pinecone_api_key = "466eb1c0-bd8e-4d70-a299-825a796933c0"
 
 import pinecone
 
-# Initialize Pinecone
+# Set API key and environment for Pinecone
 pinecone.init(api_key=pinecone_api_key, environment='us-east-1')
+
 
 
 # Set API key and environment for Pinecone
